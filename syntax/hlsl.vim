@@ -101,6 +101,9 @@ syn match           hlslSemantic            /SV_Target[0-7]/
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 
+" HLSL structures
+syn keyword         hlslStructure           cbuffer
+
 " Shader profiles
 " Cg profiles
 syn keyword         hlslProfile             arbfp1 arbvp1 fp20 vp20 fp30 vp30 ps_1_1 ps_1_2 ps_1_3
@@ -129,17 +132,12 @@ syn keyword         hlslStorageClass        in out inout
 syn keyword         hlslStorageClass        extern nointerpolation precise shared groupshared static uniform volatile
 syn keyword         hlslStorageClass        snorm unorm
 syn keyword         hlslStorageClass        linear centroid nointerpolation noperspective sample
+syn keyword         hlslStorageClass        globallycoherent
 
 " Types
 " Buffer types
-syn match           hlslType                /AppendStructuredBuffer<\s*\w\+\s*>/
-syn match           hlslType                /Buffer<\s*\w\+\s*>/
-syn match           hlslType                /ByteAddressBuffer<\s*\w\+\s*>/
-syn match           hlslType                /ConsumeStructuredBuffer<\s*\w\+\s*>/
-syn match           hlslType                /RWBuffer<\s*\w\+\s*>/
-syn match           hlslType                /RWByteAddressBuffer<\s*\w\+\s*>/
-syn match           hlslType                /RWStructuredBuffer<\s*\w\+\s*>/
-syn match           hlslType                /StructuredBuffer<\s*\w\+\s*>/
+syn keyword         hlslType                Buffer ByteAddressBuffer ConsumeStructuredBuffer StructuredBuffer
+syn keyword         hlslType                AppendStructuredBuffer RWBuffer RWByteAddressBuffer RWStructuredBuffer
 
 " Scalar types
 syn keyword         hlslType                bool int uint dword half float double
@@ -230,6 +228,7 @@ if version >= 508 || !exists("did_hlsl_syntax_inits")
   HiLink hlslFunc           hlslStatement
   HiLink hlslLayoutQual     hlslFunc
   HiLink hlslAnnotation     PreProc
+  HiLink hlslStructure      Structure
   HiLink hlslSwizzle        SpecialChar
   HiLink hlslAttribute      Statement
 
