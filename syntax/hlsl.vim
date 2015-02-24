@@ -174,11 +174,11 @@ syn keyword         hlslType                min12int1x1 min12int2x1 min12int3x1 
 syn keyword         hlslType                min16uint1x1 min16uint2x1 min16uint3x1 min16uint4x1 min16uint1x2 min16uint2x2 min16uint3x2 min16uint4x2 min16uint1x3 min16uint2x3 min16uint3x3 min16uint4x3 min16uint1x4 min16uint2x4 min16uint3x4 min16uint4x4
 
 " Sampler types
-syn keyword         hlslType                Sampler Sampler1D Sampler2D Sampler3D SamplerState SamplerComparisonState
-syn keyword         hlslTypeDeprec          sampler sampler1D sampler2D sampler3D samplerCUBE sampler_state
+syn keyword         hlslType                SamplerState SamplerComparisonState
+syn keyword         hlslType                sampler sampler1D sampler2D sampler3D samplerCUBE sampler_state
 
 " Texture types
-syn keyword         hlslType                Texture1D Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube
+syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
 syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
@@ -198,7 +198,7 @@ syn keyword         hlslStateGroupVal       NONE FRONT BACK
 " Sampler state group
 syn keyword         hlslStateGroupArg       Filter AddressU AddressV AddressW MipLODBias MaxAnisotropy ComparisonFunc BorderColor MinLOD MaxLOD ComparisonFilter
 syn keyword         hlslStateGroupVal       MIN_MAG_MIP_POINT MIN_MAG_POINT_MIP_LINEAR MIN_POINT_MAG_LINEAR_MIP_POINT MIN_POINT_MAG_MIP_LINEAR MIN_LINEAR_MAG_MIP_POINT MIN_LINEAR_MAG_POINT_MIP_LINEAR MIN_MAG_LINEAR_MIP_POINT MIN_MAG_MIP_LINEAR ANISOTROPIC
-syn keyword         hlslStateGroupVal       COMPARISON_MIN_MAG_MIP_POINT COMPARISON_MIN_MAG_POINT_MIP_LINEAR COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT COMPARISON_MIN_POINT_MAG_MIP_LINEAR COMPARISON_MIN_LINEAR_MAG_MIP_POINT 
+syn keyword         hlslStateGroupVal       COMPARISON_MIN_MAG_MIP_POINT COMPARISON_MIN_MAG_POINT_MIP_LINEAR COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT COMPARISON_MIN_POINT_MAG_MIP_LINEAR COMPARISON_MIN_LINEAR_MAG_MIP_POINT
 syn keyword         hlslStateGroupVal       COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR COMPARISON_MIN_MAG_LINEAR_MIP_POINT COMPARISON_MIN_MAG_MIP_LINEAR COMPARISON_ANISOTROPIC
 syn keyword         hlslStateGroupVal       COMPARISON_NEVER COMPARISON_LESS COMPARISON_EQUAL COMPARISON_LESS_EQUAL COMPARISON_GREATER COMPARISON_NOT_EQUAL COMPARISON_GREATER_EQUAL COMPARISON_ALWAYS
 syn keyword         hlslStateGroupVal       WRAP MIRROR CLAMP BORDER MIRROR_ONCE
