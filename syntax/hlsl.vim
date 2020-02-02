@@ -179,7 +179,7 @@ syn keyword         hlslType                sampler sampler1D sampler2D sampler3
 
 " Texture types
 syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
-syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D
+syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
 " State Groups args
