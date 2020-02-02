@@ -143,7 +143,7 @@ syn keyword         hlslStorageClass        globallycoherent
 
 " Types
 " Buffer types
-syn keyword         hlslType                Buffer ByteAddressBuffer ConsumeStructuredBuffer StructuredBuffer
+syn keyword         hlslType                ConstantBuffer Buffer ByteAddressBuffer ConsumeStructuredBuffer StructuredBuffer
 syn keyword         hlslType                AppendStructuredBuffer RWBuffer RWByteAddressBuffer RWStructuredBuffer
 
 " Scalar types
