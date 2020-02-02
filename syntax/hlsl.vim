@@ -64,6 +64,13 @@ syn keyword         hlslFunc                tex1D tex1Dbias tex1Dgrad tex1Dlod t
 syn keyword         hlslFunc                tex2D tex2Dbias tex2Dgrad tex2Dlod tex2Dproj
 syn keyword         hlslFunc                tex3D tex3Dbias tex3Dgrad tex3Dlod tex3Dproj
 syn keyword         hlslFunc                texCUBE texCUBEbias texCUBEgrad texCUBElod texCUBEproj
+syn keyword         hlslFunc                WaveIsFirstLane WaveGetLaneCount WaveGetLaneIndex
+syn keyword         hlslFunc                WaveActiveAnyTrue WaveActiveAllTrue WaveActiveBallot
+syn keyword         hlslFunc                WaveReadLaneFirst WaveReadLaneAt
+syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqualBool WaveActiveCountBits
+syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
+syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
+syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
