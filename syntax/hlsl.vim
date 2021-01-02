@@ -71,6 +71,7 @@ syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqua
 syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
+syn keyword         hlslFunc                NonUniformResourceIndex
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
