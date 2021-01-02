@@ -125,6 +125,8 @@ syn keyword         hlslProfile             ps_3_0 vs_3_0
 syn keyword         hlslProfile             gs_4_0 ps_4_0 vs_4_0 gs_4_1 ps_4_1 vs_4_1
 " Shader Model 5
 syn keyword         hlslProfile             cs_4_0 cs_4_1 cs_5_0 ds_5_0 gs_5_0 hs_5_0 ps_5_0 vs_5_0
+" Shader Model 6
+syn keyword         hlslProfile             cs_6_0, ds_6_0, gs_6_0, hs_6_0, ps_6_0, vs_6_0, lib_6_0
 
 " Swizzling
 syn match           hlslSwizzle             /\.[xyzw]\{1,4\}\>/
