@@ -114,10 +114,6 @@ syn match           hlslSemantic            /:\s*[A-Z]\w*/
 syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
 syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
 
-" Dynamic Resource Binding
-syn match           hlslSemantic            /ResourceDescriptorHeap\[\s*\w\+\s*\]/
-syn match           hlslSemantic            /SamplerDescriptorHeap\[\s*\w\+\s*\]/
-
 " System-Value Semantics
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
@@ -261,6 +257,9 @@ syn keyword         hlslStateGroupVal       HIT_KIND_TRIANGLE_FRONT_FACE HIT_KIN
 " RayQuery enums
 syn keyword         hlslStateGroupVal       COMMITTED_NOTHING COMMITTED_TRIANGLE_HIT COMMITTED_PROCEDURAL_PRIMITIVE_HIT
 syn keyword         hlslStateGroupVal       CANDIDATE_NON_OPAQUE_TRIANGLE CANDIDATE_PROCEDURAL_PRIMITIVE
+
+" Heap objects
+syn keyword         hlslStateGroupVal       ResourceDescriptorHeap SamplerDescriptorHeap
 
 syn case match " Case sensitive from now on
 
