@@ -33,7 +33,7 @@ syn match           hlslAttribute           /^\s*\[instance(\d\+)\]/
 syn match           hlslAttribute           /^\s*\[maxtessfactor(\d\+)\]/
 syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\)")\]/
+syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)")\]/
 syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
 
@@ -72,6 +72,7 @@ syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct Wave
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
 syn keyword         hlslFunc                NonUniformResourceIndex
+syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
@@ -124,6 +125,8 @@ syn match           hlslSemantic            /SV_Target[0-7]/
 syn keyword         hlslSemantic            SV_ShadingRate SV_ViewID
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
+" Mesh shading pipeline
+syn keyword         hlslSemantic            SV_CullPrimitive
 
 " HLSL structures
 syn keyword         hlslStructure           cbuffer
@@ -159,6 +162,7 @@ syn keyword         hlslStorageClass        extern nointerpolation precise share
 syn keyword         hlslStorageClass        snorm unorm
 syn keyword         hlslStorageClass        linear centroid nointerpolation noperspective sample
 syn keyword         hlslStorageClass        globallycoherent
+syn keyword         hlslStorageClass        indices vertices primitives payload
 
 " Types
 " Buffer types
