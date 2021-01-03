@@ -162,12 +162,13 @@ syn match           hlslSwizzle             /\.\(_[1-4]\{2}\)\{1,4\}/
 syn keyword         hlslStatement           discard
 
 " Storage class
-syn keyword         hlslStorageClass        in out inout
+syn match           hlslStorageClass        /\<in\(\s+pipeline\)\?\>/
+syn match           hlslStorageClass        /\<out\(\s\+indices\|\s\+vertices\|\s\+primitives\)\?\>/
+syn keyword         hlslStorageClass        inout
 syn keyword         hlslStorageClass        extern nointerpolation precise shared groupshared static uniform volatile
 syn keyword         hlslStorageClass        snorm unorm
 syn keyword         hlslStorageClass        linear centroid nointerpolation noperspective sample
 syn keyword         hlslStorageClass        globallycoherent
-syn keyword         hlslStorageClass        indices vertices primitives payload
 
 " Types
 " Buffer types
