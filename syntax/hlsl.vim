@@ -169,6 +169,7 @@ syn keyword         hlslStorageClass        indices vertices primitives payload
 " Buffer types
 syn keyword         hlslType                ConstantBuffer Buffer ByteAddressBuffer ConsumeStructuredBuffer StructuredBuffer
 syn keyword         hlslType                AppendStructuredBuffer RWBuffer RWByteAddressBuffer RWStructuredBuffer
+syn keyword         hlslType                RasterizerOrderedBuffer RasterizerOrderedByteAddressBuffer RasterizerOrderedStructuredBuffer
 
 " Scalar types
 syn keyword         hlslType                bool int uint dword half float double
@@ -212,6 +213,7 @@ syn keyword         hlslType                sampler sampler1D sampler2D sampler3
 syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
 syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
 syn keyword         hlslType                FeedbackTexture2D FeedbackTexture2DArray
+syn keyword         hlslType                RasterizerOrderedTexture1D RasterizerOrderedTexture1DArray RasterizerOrderedTexture2D RasterizerOrderedTexture2DArray RasterizerOrderedTexture3D
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
 " Raytracing types
