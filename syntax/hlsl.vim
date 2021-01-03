@@ -36,6 +36,7 @@ syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\d\+)\]/
 syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)")\]/
 syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
+syn match           hlslAttribute           /^\s*\[WaveSize(\d\+)\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
 syn match           hlslAttribute           /^\s*\[loop\]/
