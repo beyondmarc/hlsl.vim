@@ -113,7 +113,11 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
 syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
 syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
-"
+
+" Dynamic Resource Binding
+syn match           hlslSemantic            /ResourceDescriptorHeap\[\s*\w\+\s*\]/
+syn match           hlslSemantic            /SamplerDescriptorHeap\[\s*\w\+\s*\]/
+
 " System-Value Semantics
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
