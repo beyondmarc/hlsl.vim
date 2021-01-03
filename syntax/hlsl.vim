@@ -76,6 +76,7 @@ syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
+syn keyword         hlslFunc                WriteSamplerFeedback WriteSamplerFeedbackBias WriteSamplerFeedbackGrad WriteSamplerFeedbackLevel
 syn keyword         hlslFunc                Append Consume DecrementCounter IncrementCounter
 syn keyword         hlslFunc                Load2 Load3 Load4 Store Store2 Store3 Store4
 syn keyword         hlslFunc                GatherRed GatherGreen GatherBlue GatherAlpha GatherCmp GatherCmpRed GatherCmpGreen GatherCmpBlue GatherCmpAlpha
@@ -210,6 +211,7 @@ syn keyword         hlslType                sampler sampler1D sampler2D sampler3
 " Texture types
 syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
 syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
+syn keyword         hlslType                FeedbackTexture2D FeedbackTexture2DArray
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
 " Raytracing types
@@ -235,6 +237,7 @@ syn keyword         hlslStateGroupVal       COMPARISON_MIN_MAG_MIP_POINT COMPARI
 syn keyword         hlslStateGroupVal       COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR COMPARISON_MIN_MAG_LINEAR_MIP_POINT COMPARISON_MIN_MAG_MIP_LINEAR COMPARISON_ANISOTROPIC
 syn keyword         hlslStateGroupVal       COMPARISON_NEVER COMPARISON_LESS COMPARISON_EQUAL COMPARISON_LESS_EQUAL COMPARISON_GREATER COMPARISON_NOT_EQUAL COMPARISON_GREATER_EQUAL COMPARISON_ALWAYS
 syn keyword         hlslStateGroupVal       WRAP MIRROR CLAMP BORDER MIRROR_ONCE
+syn keyword         hlslStateGroupVal       SAMPLER_FEEDBACK_MIN_MIP SAMPLER_FEEDBACK_MIP_REGION_USED
 
 " Ray flags
 syn keyword         hlslStateGroupVal       RAY_FLAG_NONE RAY_FLAG_FORCE_OPAQUE RAY_FLAG_FORCE_NON_OPAQUE RAY_FLAG_ACCEPT_FIRST_HIT_AND_END_SEARCH RAY_FLAG_SKIP_CLOSEST_HIT_SHADER
