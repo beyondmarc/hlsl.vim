@@ -81,6 +81,21 @@ syn keyword         hlslFunc                GatherRed GatherGreen GatherBlue Gat
 syn match           hlslFunc                /\.mips\[\d\+\]\[\d\+\]/
 syn match           hlslFunc                /\.sample\[\d\+\]\[\d\+\]/
 
+" Ray intrinsics
+syn keyword         hlslFunc                AcceptHitAndEndSearch CallShader IgnoreHit ReportHit TraceRay
+syn keyword         hlslFunc                DispatchRaysIndex DispatchRaysDimensions
+syn keyword         hlslFunc                WorldRayOrigin WorldRayDirection RayTMin RayTCurrent RayFlags
+syn keyword         hlslFunc                InstanceIndex InstanceID GeometryIndex PrimitiveIndex ObjectRayOrigin ObjectRayDirection ObjectToWorld3x4 ObjectToWorld4x3 WorldToObject3x4 WorldToObject4x3
+syn keyword         hlslFunc                HitKind
+
+" RayQuery intrinsics
+syn keyword         hlslFunc                TraceRayInline Proceed Abort CommittedStatus
+syn keyword         hlslFunc                CandidateType CandidateProceduralPrimitiveNonOpaque CandidateTriangleRayT CandidateInstanceIndex CandidateInstanceID CandidateInstanceContributionToHitGroupIndex CandidateGeometryIndex
+syn keyword         hlslFunc                CandidatePrimitiveIndex CandidateObjectRayOrigin CandidateObjectRayDirection CandidateObjectToWorld3x4 CandidateObjectToWorld4x3 CandidateWorldToObject3x4 CandidateWorldToObject4x3
+syn keyword         hlslFunc                CommitNonOpaqueTriangleHit CommitProceduralPrimitiveHit CommittedStatus CommittedRayT CommittedInstanceIndex CommittedInstanceID CommittedInstanceContributionToHitGroupIndex
+syn keyword         hlslFunc                CommittedGeometryIndex CommittedPrimitiveIndex CommittedObjectRayOrigin CommittedObjectRayDirection CommittedObjectToWorld3x4 CommittedObjectToWorld4x3 CommittedWorldToObject3x4
+syn keyword         hlslFunc                CommittedWorldToObject4x3 CandidateTriangleBarycentrics CandidateTriangleFrontFace CommittedTriangleBarycentrics CommittedTriangleFrontFace
+
 " Layout Qualifiers
 syn keyword         hlslLayoutQual          const row_major column_major
 syn keyword         hlslLayoutQual          point line triangle lineadj triangleadj
@@ -192,6 +207,9 @@ syn keyword         hlslType                Texture1D Texture1DArray Texture2D T
 syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
+" Raytracing types
+syn keyword         hlslType                RaytracingAccelerationStructure RayDesc RayQuery BuiltInTriangleIntersectionAttributes
+
 " State Groups args
 syn case ignore " This section case insensitive
 
@@ -212,6 +230,18 @@ syn keyword         hlslStateGroupVal       COMPARISON_MIN_MAG_MIP_POINT COMPARI
 syn keyword         hlslStateGroupVal       COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR COMPARISON_MIN_MAG_LINEAR_MIP_POINT COMPARISON_MIN_MAG_MIP_LINEAR COMPARISON_ANISOTROPIC
 syn keyword         hlslStateGroupVal       COMPARISON_NEVER COMPARISON_LESS COMPARISON_EQUAL COMPARISON_LESS_EQUAL COMPARISON_GREATER COMPARISON_NOT_EQUAL COMPARISON_GREATER_EQUAL COMPARISON_ALWAYS
 syn keyword         hlslStateGroupVal       WRAP MIRROR CLAMP BORDER MIRROR_ONCE
+
+" Ray flags
+syn keyword         hlslStateGroupVal       RAY_FLAG_NONE RAY_FLAG_FORCE_OPAQUE RAY_FLAG_FORCE_NON_OPAQUE RAY_FLAG_ACCEPT_FIRST_HIT_AND_END_SEARCH RAY_FLAG_SKIP_CLOSEST_HIT_SHADER
+syn keyword         hlslStateGroupVal       RAY_FLAG_CULL_BACK_FACING_TRIANGLES RAY_FLAG_CULL_FRONT_FACING_TRIANGLES RAY_FLAG_CULL_OPAQUE RAY_FLAG_CULL_NON_OPAQUE
+syn keyword         hlslStateGroupVal       RAY_FLAG_SKIP_TRIANGLES RAY_FLAG_SKIP_PROCEDURAL_PRIMITIVES
+
+" HitKind enum
+syn keyword         hlslStateGroupVal       HIT_KIND_TRIANGLE_FRONT_FACE HIT_KIND_TRIANGLE_BACK_FACE
+
+" RayQuery enums
+syn keyword         hlslStateGroupVal       COMMITTED_NOTHING COMMITTED_TRIANGLE_HIT COMMITTED_PROCEDURAL_PRIMITIVE_HIT
+syn keyword         hlslStateGroupVal       CANDIDATE_NON_OPAQUE_TRIANGLE CANDIDATE_PROCEDURAL_PRIMITIVE
 
 syn case match " Case sensitive from now on
 
