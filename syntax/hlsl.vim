@@ -71,6 +71,7 @@ syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqua
 syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
+syn keyword         hlslFunc                WaveMatch WaveMultiPrefixSum WaveMultiPrefixProduct WaveMultiPrefixCountBits WaveMultiPrefixAnd WaveMultiPrefixOr WaveMultiPrefixXor
 syn keyword         hlslFunc                NonUniformResourceIndex
 syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
 
@@ -124,6 +125,7 @@ syn keyword         hlslSemantic            SV_GSInstanceID SV_RenderTargetArray
 syn keyword         hlslSemantic            SV_Coverage SV_Depth SV_IsFrontFace SV_SampleIndex
 syn match           hlslSemantic            /SV_Target[0-7]/
 syn keyword         hlslSemantic            SV_ShadingRate SV_ViewID
+syn match           hlslSemantic            /SV_Barycentrics[0-1]/
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 " Mesh shading pipeline
