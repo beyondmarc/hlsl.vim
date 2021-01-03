@@ -74,6 +74,7 @@ syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY Quad
 syn keyword         hlslFunc                WaveMatch WaveMultiPrefixSum WaveMultiPrefixProduct WaveMultiPrefixCountBits WaveMultiPrefixAnd WaveMultiPrefixOr WaveMultiPrefixXor
 syn keyword         hlslFunc                NonUniformResourceIndex
 syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
+syn keyword         hlslFunc                dot4add_u8packed dot4add_i8packed dot2add
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
