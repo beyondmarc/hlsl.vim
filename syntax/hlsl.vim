@@ -121,7 +121,7 @@ syn keyword         hlslSemantic            SV_GSInstanceID SV_RenderTargetArray
 " Pixel Shader - MSAA
 syn keyword         hlslSemantic            SV_Coverage SV_Depth SV_IsFrontFace SV_SampleIndex
 syn match           hlslSemantic            /SV_Target[0-7]/
-syn keyword         hlslSemantic            SV_ShadingRate
+syn keyword         hlslSemantic            SV_ShadingRate SV_ViewID
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 
