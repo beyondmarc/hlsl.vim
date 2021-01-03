@@ -113,7 +113,7 @@ syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|i
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
 syn match           hlslSemantic            /SV_CullDistance\d\+/
-syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID SV_ShadingRate
+syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID
 " Tessellation pipeline
 syn keyword         hlslSemantic            SV_DomainLocation SV_InsideTessFactor SV_OutputControlPointID SV_TessFactor
 " Geometry Shader
@@ -121,6 +121,7 @@ syn keyword         hlslSemantic            SV_GSInstanceID SV_RenderTargetArray
 " Pixel Shader - MSAA
 syn keyword         hlslSemantic            SV_Coverage SV_Depth SV_IsFrontFace SV_SampleIndex
 syn match           hlslSemantic            /SV_Target[0-7]/
+syn keyword         hlslSemantic            SV_ShadingRate
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 
