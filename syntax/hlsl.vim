@@ -113,7 +113,7 @@ syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|i
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
 syn match           hlslSemantic            /SV_CullDistance\d\+/
-syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID
+syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID SV_ShadingRate
 " Tessellation pipeline
 syn keyword         hlslSemantic            SV_DomainLocation SV_InsideTessFactor SV_OutputControlPointID SV_TessFactor
 " Geometry Shader
