@@ -33,9 +33,10 @@ syn match           hlslAttribute           /^\s*\[instance(\d\+)\]/
 syn match           hlslAttribute           /^\s*\[maxtessfactor(\d\+)\]/
 syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\)")\]/
+syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)")\]/
 syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
+syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\s*)\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
 syn match           hlslAttribute           /^\s*\[loop\]/
@@ -71,14 +72,34 @@ syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqua
 syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
+syn keyword         hlslFunc                WaveMatch WaveMultiPrefixSum WaveMultiPrefixProduct WaveMultiPrefixCountBits WaveMultiPrefixAnd WaveMultiPrefixOr WaveMultiPrefixXor
+syn keyword         hlslFunc                NonUniformResourceIndex
+syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
+syn keyword         hlslFunc                dot4add_u8packed dot4add_i8packed dot2add
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
+syn keyword         hlslFunc                WriteSamplerFeedback WriteSamplerFeedbackBias WriteSamplerFeedbackGrad WriteSamplerFeedbackLevel
 syn keyword         hlslFunc                Append Consume DecrementCounter IncrementCounter
 syn keyword         hlslFunc                Load2 Load3 Load4 Store Store2 Store3 Store4
 syn keyword         hlslFunc                GatherRed GatherGreen GatherBlue GatherAlpha GatherCmp GatherCmpRed GatherCmpGreen GatherCmpBlue GatherCmpAlpha
 syn match           hlslFunc                /\.mips\[\d\+\]\[\d\+\]/
 syn match           hlslFunc                /\.sample\[\d\+\]\[\d\+\]/
+
+" Ray intrinsics
+syn keyword         hlslFunc                AcceptHitAndEndSearch CallShader IgnoreHit ReportHit TraceRay
+syn keyword         hlslFunc                DispatchRaysIndex DispatchRaysDimensions
+syn keyword         hlslFunc                WorldRayOrigin WorldRayDirection RayTMin RayTCurrent RayFlags
+syn keyword         hlslFunc                InstanceIndex InstanceID GeometryIndex PrimitiveIndex ObjectRayOrigin ObjectRayDirection ObjectToWorld3x4 ObjectToWorld4x3 WorldToObject3x4 WorldToObject4x3
+syn keyword         hlslFunc                HitKind
+
+" RayQuery intrinsics
+syn keyword         hlslFunc                TraceRayInline Proceed Abort CommittedStatus
+syn keyword         hlslFunc                CandidateType CandidateProceduralPrimitiveNonOpaque CandidateTriangleRayT CandidateInstanceIndex CandidateInstanceID CandidateInstanceContributionToHitGroupIndex CandidateGeometryIndex
+syn keyword         hlslFunc                CandidatePrimitiveIndex CandidateObjectRayOrigin CandidateObjectRayDirection CandidateObjectToWorld3x4 CandidateObjectToWorld4x3 CandidateWorldToObject3x4 CandidateWorldToObject4x3
+syn keyword         hlslFunc                CommitNonOpaqueTriangleHit CommitProceduralPrimitiveHit CommittedStatus CommittedRayT CommittedInstanceIndex CommittedInstanceID CommittedInstanceContributionToHitGroupIndex
+syn keyword         hlslFunc                CommittedGeometryIndex CommittedPrimitiveIndex CommittedObjectRayOrigin CommittedObjectRayDirection CommittedObjectToWorld3x4 CommittedObjectToWorld4x3 CommittedWorldToObject3x4
+syn keyword         hlslFunc                CommittedWorldToObject4x3 CandidateTriangleBarycentrics CandidateTriangleFrontFace CommittedTriangleBarycentrics CommittedTriangleFrontFace
 
 " Layout Qualifiers
 syn keyword         hlslLayoutQual          const row_major column_major
@@ -92,7 +113,7 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
 syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
 syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
-"
+
 " System-Value Semantics
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
@@ -105,8 +126,12 @@ syn keyword         hlslSemantic            SV_GSInstanceID SV_RenderTargetArray
 " Pixel Shader - MSAA
 syn keyword         hlslSemantic            SV_Coverage SV_Depth SV_IsFrontFace SV_SampleIndex
 syn match           hlslSemantic            /SV_Target[0-7]/
+syn keyword         hlslSemantic            SV_ShadingRate SV_ViewID
+syn match           hlslSemantic            /SV_Barycentrics[0-1]/
 " Compute Shader
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
+" Mesh shading pipeline
+syn keyword         hlslSemantic            SV_CullPrimitive
 
 " HLSL structures
 syn keyword         hlslStructure           cbuffer
@@ -124,6 +149,8 @@ syn keyword         hlslProfile             ps_3_0 vs_3_0
 syn keyword         hlslProfile             gs_4_0 ps_4_0 vs_4_0 gs_4_1 ps_4_1 vs_4_1
 " Shader Model 5
 syn keyword         hlslProfile             cs_4_0 cs_4_1 cs_5_0 ds_5_0 gs_5_0 hs_5_0 ps_5_0 vs_5_0
+" Shader Model 6
+syn keyword         hlslProfile             cs_6_0 ds_6_0 gs_6_0 hs_6_0 ps_6_0 vs_6_0 lib_6_0
 
 " Swizzling
 syn match           hlslSwizzle             /\.[xyzw]\{1,4\}\>/
@@ -135,7 +162,9 @@ syn match           hlslSwizzle             /\.\(_[1-4]\{2}\)\{1,4\}/
 syn keyword         hlslStatement           discard
 
 " Storage class
-syn keyword         hlslStorageClass        in out inout
+syn match           hlslStorageClass        /\<in\(\s+pipeline\)\?\>/
+syn match           hlslStorageClass        /\<out\(\s\+indices\|\s\+vertices\|\s\+primitives\)\?\>/
+syn keyword         hlslStorageClass        inout
 syn keyword         hlslStorageClass        extern nointerpolation precise shared groupshared static uniform volatile
 syn keyword         hlslStorageClass        snorm unorm
 syn keyword         hlslStorageClass        linear centroid nointerpolation noperspective sample
@@ -145,6 +174,7 @@ syn keyword         hlslStorageClass        globallycoherent
 " Buffer types
 syn keyword         hlslType                ConstantBuffer Buffer ByteAddressBuffer ConsumeStructuredBuffer StructuredBuffer
 syn keyword         hlslType                AppendStructuredBuffer RWBuffer RWByteAddressBuffer RWStructuredBuffer
+syn keyword         hlslType                RasterizerOrderedBuffer RasterizerOrderedByteAddressBuffer RasterizerOrderedStructuredBuffer
 
 " Scalar types
 syn keyword         hlslType                bool int uint dword half float double
@@ -187,7 +217,12 @@ syn keyword         hlslType                sampler sampler1D sampler2D sampler3
 " Texture types
 syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
 syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
+syn keyword         hlslType                FeedbackTexture2D FeedbackTexture2DArray
+syn keyword         hlslType                RasterizerOrderedTexture1D RasterizerOrderedTexture1DArray RasterizerOrderedTexture2D RasterizerOrderedTexture2DArray RasterizerOrderedTexture3D
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
+
+" Raytracing types
+syn keyword         hlslType                RaytracingAccelerationStructure RayDesc RayQuery BuiltInTriangleIntersectionAttributes
 
 " State Groups args
 syn case ignore " This section case insensitive
@@ -209,6 +244,22 @@ syn keyword         hlslStateGroupVal       COMPARISON_MIN_MAG_MIP_POINT COMPARI
 syn keyword         hlslStateGroupVal       COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR COMPARISON_MIN_MAG_LINEAR_MIP_POINT COMPARISON_MIN_MAG_MIP_LINEAR COMPARISON_ANISOTROPIC
 syn keyword         hlslStateGroupVal       COMPARISON_NEVER COMPARISON_LESS COMPARISON_EQUAL COMPARISON_LESS_EQUAL COMPARISON_GREATER COMPARISON_NOT_EQUAL COMPARISON_GREATER_EQUAL COMPARISON_ALWAYS
 syn keyword         hlslStateGroupVal       WRAP MIRROR CLAMP BORDER MIRROR_ONCE
+syn keyword         hlslStateGroupVal       SAMPLER_FEEDBACK_MIN_MIP SAMPLER_FEEDBACK_MIP_REGION_USED
+
+" Ray flags
+syn keyword         hlslStateGroupVal       RAY_FLAG_NONE RAY_FLAG_FORCE_OPAQUE RAY_FLAG_FORCE_NON_OPAQUE RAY_FLAG_ACCEPT_FIRST_HIT_AND_END_SEARCH RAY_FLAG_SKIP_CLOSEST_HIT_SHADER
+syn keyword         hlslStateGroupVal       RAY_FLAG_CULL_BACK_FACING_TRIANGLES RAY_FLAG_CULL_FRONT_FACING_TRIANGLES RAY_FLAG_CULL_OPAQUE RAY_FLAG_CULL_NON_OPAQUE
+syn keyword         hlslStateGroupVal       RAY_FLAG_SKIP_TRIANGLES RAY_FLAG_SKIP_PROCEDURAL_PRIMITIVES
+
+" HitKind enum
+syn keyword         hlslStateGroupVal       HIT_KIND_TRIANGLE_FRONT_FACE HIT_KIND_TRIANGLE_BACK_FACE
+
+" RayQuery enums
+syn keyword         hlslStateGroupVal       COMMITTED_NOTHING COMMITTED_TRIANGLE_HIT COMMITTED_PROCEDURAL_PRIMITIVE_HIT
+syn keyword         hlslStateGroupVal       CANDIDATE_NON_OPAQUE_TRIANGLE CANDIDATE_PROCEDURAL_PRIMITIVE
+
+" Heap objects
+syn keyword         hlslStateGroupVal       ResourceDescriptorHeap SamplerDescriptorHeap
 
 syn case match " Case sensitive from now on
 
