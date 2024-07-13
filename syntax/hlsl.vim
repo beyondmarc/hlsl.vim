@@ -26,18 +26,18 @@ endif
 syn match           hlslAnnotation          /<.*;>/
 
 " Attributes
-syn match           hlslAttribute           /^\s*\[maxvertexcount(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[domain("\(tri\|quad\|isoline\)")\]/
+syn match           hlslAttribute           /^\s*\[maxvertexcount(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[domain(\s*"\(tri\|quad\|isoline\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[earlydepthstencil\]/
-syn match           hlslAttribute           /^\s*\[instance(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[maxtessfactor(\d\+)\]/
+syn match           hlslAttribute           /^\s*\[instance(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[maxtessfactor(\s*\d\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)")\]/
-syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
-syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
+syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[outputtopology(\s*"\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[partitioning(\s*"\(integer\|fractional_even\|fractional_odd\|pow2\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"[\d\w_]\+"\s*)\]/
 syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[shader("\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)")\]/
+syn match           hlslAttribute           /^\s*\[shader(\s*"\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)"\s*)\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
 syn match           hlslAttribute           /^\s*\[loop\]/
@@ -48,7 +48,7 @@ syn match           hlslAttribute           /^\s*\[flatten\]/
 syn match           hlslAttribute           /^\s*\[forcecase\]/
 syn match           hlslAttribute           /^\s*\[call\]/
 
-syn match           hlslAttribute           /struct\s*\[raypayload\]/
+syn match           hlslAttribute           /\[raypayload\]/
 
 " Intrinsic functions
 syn keyword         hlslFunc                abs acos acosh asin asinh atan atanh cos cosh exp exp2 floor log log10 log2 round rsqrt sin sincos sinh sqrt tan tanh trunc
@@ -120,10 +120,10 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 
 " User defined Semantics
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
-syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
-syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
-syn match           hlslSemantic            /:\s*read(\(\(anyhit\|closesthit\|miss\|caller\),\)*\(anyhit\|closesthit\|miss\|caller\)\?)/ " read
-syn match           hlslSemantic            /:\s*write(\(\(anyhit\|closesthit\|miss\|caller\),\)*\(anyhit\|closesthit\|miss\|caller\)\?)/ " write
+syn match           hlslSemantic            /:\s*packoffset(\s*c\d\+\(\.[xyzw]\)\=\s*)/ " packoffset
+syn match           hlslSemantic            /:\s*register(\s*\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+\s*)/ " register
+syn match           hlslSemantic            /:\s*read(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " read
+syn match           hlslSemantic            /:\s*write(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " write
 
 " System-Value Semantics
 " Vertex Shader
