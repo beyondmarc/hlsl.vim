@@ -47,6 +47,7 @@ syn match           hlslAttribute           /^\s*\[branch\]/
 syn match           hlslAttribute           /^\s*\[flatten\]/
 syn match           hlslAttribute           /^\s*\[forcecase\]/
 syn match           hlslAttribute           /^\s*\[call\]/
+syn match           hlslAttribute           /^\s*\[WaveOpsIncludeHelperLanes\]/
 
 syn match           hlslAttribute           /\[raypayload\]/
 
