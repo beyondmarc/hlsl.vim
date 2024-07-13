@@ -59,17 +59,17 @@ syn match           hlslAttribute           /^\s*\[NodeLaunch(\s*"\(broadcasting
 syn match           hlslAttribute           /^\s*\[NodeIsProgramEntry\]/
 syn match           hlslAttribute           /^\s*\[NodeLocalRootArgumentsTableIndex(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NumThreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"\w\+"\(\s*,\s*\w\+\)\?\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeMaxDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeMaxRecursionDepth(\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEntryRecord(\s*\w\+\s*,\(true\|false\)\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEntryRecord(\s*\w\+\s*,\s*\(true\|false\)\s*)\]/
 
 " Work graph record attributes
 syn match           hlslAttribute           /\[NodeTrackRWInputSharing\]/
 syn match           hlslAttribute           /\[MaxRecords(\s*\w\+\s*)\]/
-syn match           hlslAttribute           /\[NodeID(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\=\s*)\]/
-syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*\(\d\|\w\|_\)\+\s*)\]/
+syn match           hlslAttribute           /\[NodeID(\s*"\w\+"\(\s*,\s*\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /\[AllowSparseNodes\]/
 syn match           hlslAttribute           /\[NodeArraySize(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /\[UnboundedSparseNodes\]/
@@ -152,7 +152,7 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 
 " User defined Semantics
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
-syn match           hlslSemantic            /:\s*packoffset(\s*c\d\+\(\.[xyzw]\)\=\s*)/ " packoffset
+syn match           hlslSemantic            /:\s*packoffset(\s*c\d\+\(\.[xyzw]\)\?\s*)/ " packoffset
 syn match           hlslSemantic            /:\s*register(\s*\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+\s*)/ " register
 syn match           hlslSemantic            /:\s*read(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " read
 syn match           hlslSemantic            /:\s*write(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " write
