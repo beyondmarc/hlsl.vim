@@ -67,6 +67,7 @@ syn keyword         hlslFunc                tex2D tex2Dbias tex2Dgrad tex2Dlod t
 syn keyword         hlslFunc                tex3D tex3Dbias tex3Dgrad tex3Dlod tex3Dproj
 syn keyword         hlslFunc                texCUBE texCUBEbias texCUBEgrad texCUBElod texCUBEproj
 syn keyword         hlslFunc                WaveIsFirstLane WaveGetLaneCount WaveGetLaneIndex
+syn keyword         hlslFunc                IsHelperLane
 syn keyword         hlslFunc                WaveActiveAnyTrue WaveActiveAllTrue WaveActiveBallot
 syn keyword         hlslFunc                WaveReadLaneFirst WaveReadLaneAt
 syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqualBool WaveActiveCountBits
