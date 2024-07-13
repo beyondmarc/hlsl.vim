@@ -59,6 +59,7 @@ syn keyword         hlslFunc                ddx ddx_coarse ddx_fine ddy ddy_coar
 syn keyword         hlslFunc                EvaluateAttributeAtCentroid EvaluateAttributeAtSample EvaluateAttributeSnapped
 syn keyword         hlslFunc                GetRenderTargetSampleCount GetRenderTargetSamplePosition
 syn keyword         hlslFunc                InterlockedAdd InterlockedAnd InterlockedCompareExchange InterlockedCompareStore InterlockedExchange InterlockedMax InterlockedMin InterlockedOr InterlockedXor
+syn keyword         hlslFunc                InterlockedCompareStoreFloatBitwise InterlockedCompareExchangeFloatBitwise
 syn keyword         hlslFunc                Process2DQuadTessFactorsAvg Process2DQuadTessFactorsMax Process2DQuadTessFactorsMin ProcessIsolineTessFactors
 syn keyword         hlslFunc                ProcessQuadTessFactorsAvg ProcessQuadTessFactorsMax ProcessQuadTessFactorsMin ProcessTriTessFactorsAvg ProcessTriTessFactorsMax ProcessTriTessFactorsMin
 syn keyword         hlslFunc                tex1D tex1Dbias tex1Dgrad tex1Dlod tex1Dproj
