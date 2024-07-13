@@ -51,6 +51,29 @@ syn match           hlslAttribute           /^\s*\[WaveOpsIncludeHelperLanes\]/
 
 syn match           hlslAttribute           /\[raypayload\]/
 
+" Work graph shader target attributes
+syn match           hlslAttribute           /^\s*\[Shader(\s*"[\d\w_]\+"\s*)\]/
+
+" Work graph shader function attributes
+syn match           hlslAttribute           /^\s*\[NodeLaunch(\s*"\(broadcasting\|coalescing\|thread\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeIsProgramEntry\]/
+syn match           hlslAttribute           /^\s*\[NodeLocalRootArgumentsTableIndex(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NumThreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"[\d\w_]\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxRecursionDepth(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEntryRecord(\s*\w\+\s*,\(true\|false\)\s*)\]/
+
+" Work graph record attributes
+syn match           hlslAttribute           /\[NodeTrackRWInputSharing\]/
+syn match           hlslAttribute           /\[MaxRecords(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /\[NodeID(\s*"[\d\w_]\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*[\d\w_]\+\s*)\]/
+syn match           hlslAttribute           /\[AllowSparseNodes\]/
+syn match           hlslAttribute           /\[NodeArraySize(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /\[UnboundedSparseNodes\]/
+
 " Intrinsic functions
 syn keyword         hlslFunc                abs acos acosh asin asinh atan atanh cos cosh exp exp2 floor log log10 log2 round rsqrt sin sincos sinh sqrt tan tanh trunc
 syn keyword         hlslFunc                AllMemoryBarrier AllMemoryBarrierWithGroupSync DeviceMemoryBarrier DeviceMemoryBarrierWithGroupSync GroupMemoryBarrier GroupMemoryBarrierWithGroupSync
@@ -109,9 +132,15 @@ syn keyword         hlslFunc                CommitNonOpaqueTriangleHit CommitPro
 syn keyword         hlslFunc                CommittedGeometryIndex CommittedPrimitiveIndex CommittedObjectRayOrigin CommittedObjectRayDirection CommittedObjectToWorld3x4 CommittedObjectToWorld4x3 CommittedWorldToObject3x4
 syn keyword         hlslFunc                CommittedWorldToObject4x3 CandidateTriangleBarycentrics CandidateTriangleFrontFace CommittedTriangleBarycentrics CommittedTriangleFrontFace
 
-" Pack/Unpack math intrinsics
+" Pack/unpack math intrinsics
 syn keyword         hlslFunc                unpack_s8s16 unpack_u8u16 unpack_s8s32 unpack_u8u32
 syn keyword         hlslFunc                pack_u8 pack_s8 pack_clamp_u8 pack_clamp_s8
+
+" Work graph object methods
+syn keyword         hlslFunc                Get FinishedCrossGroupSharing Count GetThreadNodeOutputRecords GetGroupNodeOutputRecords IsValid GroupIncrementOutputCount ThreadIncrementOutputCount OutputComplete
+
+" Work graph free intrinsics
+syn keyword         hlslFunc                GetRemainingRecursionLevels Barrier
 
 " Layout Qualifiers
 syn keyword         hlslLayoutQual          const row_major column_major
@@ -147,6 +176,8 @@ syn match           hlslSemantic            /SV_Barycentrics[0-1]/
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 " Mesh shading pipeline
 syn keyword         hlslSemantic            SV_CullPrimitive
+" Work graph record system values
+syn keyword         hlslSemantic            SV_DispatchGrid
 
 " HLSL structures
 syn keyword         hlslStructure           cbuffer
@@ -242,6 +273,15 @@ syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3
 " Raytracing types
 syn keyword         hlslType                RaytracingAccelerationStructure RayDesc RayQuery BuiltInTriangleIntersectionAttributes
 
+" Work graph input record objects
+syn keyword         hlslType                DispatchNodeInputRecord RWDispatchNodeInputRecord GroupNodeInputRecords RWGroupNodeInputRecords ThreadNodeInputRecord RWThreadNodeInputRecord EmptyNodeInput
+
+" Work graph output node objects
+syn keyword         hlslType                NodeOutput NodeOutputArray EmptyNodeOutput EmptyNodeOutputArray
+
+" Work graph output record objects
+syn keyword         hlslType                ThreadNodeOutputRecords GroupNodeOutputRecords
+
 " State Groups args
 syn case ignore " This section case insensitive
 
@@ -278,6 +318,9 @@ syn keyword         hlslStateGroupVal       CANDIDATE_NON_OPAQUE_TRIANGLE CANDID
 
 " Heap objects
 syn keyword         hlslStateGroupVal       ResourceDescriptorHeap SamplerDescriptorHeap
+
+" Work graph constants
+syn keyword         hlslStateGroupVal       UAV_MEMORY GROUP_SHARED_MEMORY NODE_INPUT_MEMORY NODE_OUTPUT_MEMORY ALL_MEMORY GROUP_SYNC GROUP_SCOPE DEVICE_SCOPE
 
 syn case match " Case sensitive from now on
 
