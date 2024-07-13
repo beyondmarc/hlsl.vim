@@ -86,6 +86,7 @@ syn keyword         hlslFunc                dot4add_u8packed dot4add_i8packed do
 
 syn keyword         hlslFunc                RestartStrip
 syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel GatherRaw SampleCmpLevel
+syn keyword         hlslFunc                SampleCmpBias SampleCmpGrad
 syn keyword         hlslFunc                WriteSamplerFeedback WriteSamplerFeedbackBias WriteSamplerFeedbackGrad WriteSamplerFeedbackLevel
 syn keyword         hlslFunc                Append Consume DecrementCounter IncrementCounter
 syn keyword         hlslFunc                Load2 Load3 Load4 Store Store2 Store3 Store4
