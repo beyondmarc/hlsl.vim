@@ -68,7 +68,7 @@ syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEn
 " Work graph record attributes
 syn match           hlslAttribute           /\[NodeTrackRWInputSharing\]/
 syn match           hlslAttribute           /\[MaxRecords(\s*\w\+\s*)\]/
-syn match           hlslAttribute           /\[NodeID(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /\[NodeID(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\=\s*)\]/
 syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*\(\d\|\w\|_\)\+\s*)\]/
 syn match           hlslAttribute           /\[AllowSparseNodes\]/
 syn match           hlslAttribute           /\[NodeArraySize(\s*\w\+\s*)\]/
