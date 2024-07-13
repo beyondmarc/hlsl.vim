@@ -37,6 +37,7 @@ syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line
 syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
 syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[shader("\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)")\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
 syn match           hlslAttribute           /^\s*\[loop\]/
@@ -46,6 +47,8 @@ syn match           hlslAttribute           /^\s*\[branch\]/
 syn match           hlslAttribute           /^\s*\[flatten\]/
 syn match           hlslAttribute           /^\s*\[forcecase\]/
 syn match           hlslAttribute           /^\s*\[call\]/
+
+syn match           hlslAttribute           /struct\s*\[raypayload\]/
 
 " Intrinsic functions
 syn keyword         hlslFunc                abs acos acosh asin asinh atan atanh cos cosh exp exp2 floor log log10 log2 round rsqrt sin sincos sinh sqrt tan tanh trunc
@@ -119,6 +122,8 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
 syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
 syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
+syn match           hlslSemantic            /:\s*read(\(\(anyhit\|closesthit\|miss\|caller\),\)*\(anyhit\|closesthit\|miss\|caller\)\?)/ " read
+syn match           hlslSemantic            /:\s*write(\(\(anyhit\|closesthit\|miss\|caller\),\)*\(anyhit\|closesthit\|miss\|caller\)\?)/ " write
 
 " System-Value Semantics
 " Vertex Shader
