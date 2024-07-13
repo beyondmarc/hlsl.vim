@@ -35,7 +35,7 @@ syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+
 syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[outputtopology(\s*"\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[partitioning(\s*"\(integer\|fractional_even\|fractional_odd\|pow2\)"\s*)\]/
-syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"[\d\w_]\+"\s*)\]/
+syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"\(\d\|\w\|_\)\+"\s*)\]/
 syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\(\s*,\s*\w\+\(\s*,\s*\w\+\)\?\)\?\s*)\]/
 syn match           hlslAttribute           /^\s*\[shader(\s*"\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)"\s*)\]/
 
@@ -52,14 +52,14 @@ syn match           hlslAttribute           /^\s*\[WaveOpsIncludeHelperLanes\]/
 syn match           hlslAttribute           /\[raypayload\]/
 
 " Work graph shader target attributes
-syn match           hlslAttribute           /^\s*\[Shader(\s*"[\d\w_]\+"\s*)\]/
+syn match           hlslAttribute           /^\s*\[Shader(\s*"\(\d\|\w\|_\)\+"\s*)\]/
 
 " Work graph shader function attributes
 syn match           hlslAttribute           /^\s*\[NodeLaunch(\s*"\(broadcasting\|coalescing\|thread\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeIsProgramEntry\]/
 syn match           hlslAttribute           /^\s*\[NodeLocalRootArgumentsTableIndex(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NumThreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"[\d\w_]\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\?\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeMaxDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[NodeMaxRecursionDepth(\s*\w\+\s*)\]/
@@ -68,8 +68,8 @@ syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEn
 " Work graph record attributes
 syn match           hlslAttribute           /\[NodeTrackRWInputSharing\]/
 syn match           hlslAttribute           /\[MaxRecords(\s*\w\+\s*)\]/
-syn match           hlslAttribute           /\[NodeID(\s*"[\d\w_]\+"\(\s*,\w\+\)\?\s*)\]/
-syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*[\d\w_]\+\s*)\]/
+syn match           hlslAttribute           /\[NodeID(\s*"\(\d\|\w\|_\)\+"\(\s*,\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*\(\d\|\w\|_\)\+\s*)\]/
 syn match           hlslAttribute           /\[AllowSparseNodes\]/
 syn match           hlslAttribute           /\[NodeArraySize(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /\[UnboundedSparseNodes\]/
