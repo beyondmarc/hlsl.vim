@@ -225,6 +225,7 @@ syn keyword         hlslType                RasterizerOrderedBuffer RasterizerOr
 " Scalar types
 syn keyword         hlslType                bool int uint dword half float double
 syn keyword         hlslType                min16float min10float min16int min12int min16uint
+syn keyword         hlslType                float16_t float32_t float64_t
 
 " Vector types
 syn match           hlslType                /vector<\s*\w\+,\s*[1-4]\s*>/
@@ -240,6 +241,15 @@ syn keyword         hlslType                min10float1 min10float2 min10float3 
 syn keyword         hlslType                min16int1 min16int2 min16int3 min16int4
 syn keyword         hlslType                min12int1 min12int2 min12int3 min12int4
 syn keyword         hlslType                min16uint1 min16uint2 min16uint3 min16uint4
+syn keyword         hlslType                float16_t1 float16_t2 float16_t3 float16_t4
+syn keyword         hlslType                float32_t1 float32_t2 float32_t3 float32_t4
+syn keyword         hlslType                float64_t1 float64_t2 float64_t3 float64_t4
+syn keyword         hlslType                int16_t1 int16_t2 int16_t3 int16_t4
+syn keyword         hlslType                int32_t1 int32_t2 int32_t3 int32_t4
+syn keyword         hlslType                int64_t1 int64_t2 int64_t3 int64_t4
+syn keyword         hlslType                uint16_t1 uint16_t2 uint16_t3 uint16_t4
+syn keyword         hlslType                uint32_t1 uint32_t2 uint32_t3 uint32_t4
+syn keyword         hlslType                uint64_t1 uint64_t2 uint64_t3 uint64_t4
 
 " Packed types
 syn keyword         hlslType                uint8_t4_packed int8_t4_packed
@@ -258,6 +268,15 @@ syn keyword         hlslType                min10float1x1 min10float2x1 min10flo
 syn keyword         hlslType                min16int1x1 min16int2x1 min16int3x1 min16int4x1 min16int1x2 min16int2x2 min16int3x2 min16int4x2 min16int1x3 min16int2x3 min16int3x3 min16int4x3 min16int1x4 min16int2x4 min16int3x4 min16int4x4
 syn keyword         hlslType                min12int1x1 min12int2x1 min12int3x1 min12int4x1 min12int1x2 min12int2x2 min12int3x2 min12int4x2 min12int1x3 min12int2x3 min12int3x3 min12int4x3 min12int1x4 min12int2x4 min12int3x4 min12int4x4
 syn keyword         hlslType                min16uint1x1 min16uint2x1 min16uint3x1 min16uint4x1 min16uint1x2 min16uint2x2 min16uint3x2 min16uint4x2 min16uint1x3 min16uint2x3 min16uint3x3 min16uint4x3 min16uint1x4 min16uint2x4 min16uint3x4 min16uint4x4
+syn keyword         hlslType                float16_t1x1 float16_t2x1 float16_t3x1 float16_t4x1 float16_t1x2 float16_t2x2 float16_t3x2 float16_t4x2 float16_t1x3 float16_t2x3 float16_t3x3 float16_t4x3 float16_t1x4 float16_t2x4 float16_t3x4 float16_t4x4
+syn keyword         hlslType                float32_t1x1 float32_t2x1 float32_t3x1 float32_t4x1 float32_t1x2 float32_t2x2 float32_t3x2 float32_t4x2 float32_t1x3 float32_t2x3 float32_t3x3 float32_t4x3 float32_t1x4 float32_t2x4 float32_t3x4 float32_t4x4
+syn keyword         hlslType                float64_t1x1 float64_t2x1 float64_t3x1 float64_t4x1 float64_t1x2 float64_t2x2 float64_t3x2 float64_t4x2 float64_t1x3 float64_t2x3 float64_t3x3 float64_t4x3 float64_t1x4 float64_t2x4 float64_t3x4 float64_t4x4
+syn keyword         hlslType                int16_t1x1 int16_t2x1 int16_t3x1 int16_t4x1 int16_t1x2 int16_t2x2 int16_t3x2 int16_t4x2 int16_t1x3 int16_t2x3 int16_t3x3 int16_t4x3 int16_t1x4 int16_t2x4 int16_t3x4 int16_t4x4
+syn keyword         hlslType                int32_t1x1 int32_t2x1 int32_t3x1 int32_t4x1 int32_t1x2 int32_t2x2 int32_t3x2 int32_t4x2 int32_t1x3 int32_t2x3 int32_t3x3 int32_t4x3 int32_t1x4 int32_t2x4 int32_t3x4 int32_t4x4
+syn keyword         hlslType                int64_t1x1 int64_t2x1 int64_t3x1 int64_t4x1 int64_t1x2 int64_t2x2 int64_t3x2 int64_t4x2 int64_t1x3 int64_t2x3 int64_t3x3 int64_t4x3 int64_t1x4 int64_t2x4 int64_t3x4 int64_t4x4
+syn keyword         hlslType                uint16_t1x1 uint16_t2x1 uint16_t3x1 uint16_t4x1 uint16_t1x2 uint16_t2x2 uint16_t3x2 uint16_t4x2 uint16_t1x3 uint16_t2x3 uint16_t3x3 uint16_t4x3 uint16_t1x4 uint16_t2x4 uint16_t3x4 uint16_t4x4
+syn keyword         hlslType                uint32_t1x1 uint32_t2x1 uint32_t3x1 uint32_t4x1 uint32_t1x2 uint32_t2x2 uint32_t3x2 uint32_t4x2 uint32_t1x3 uint32_t2x3 uint32_t3x3 uint32_t4x3 uint32_t1x4 uint32_t2x4 uint32_t3x4 uint32_t4x4
+syn keyword         hlslType                uint64_t1x1 uint64_t2x1 uint64_t3x1 uint64_t4x1 uint64_t1x2 uint64_t2x2 uint64_t3x2 uint64_t4x2 uint64_t1x3 uint64_t2x3 uint64_t3x3 uint64_t4x3 uint64_t1x4 uint64_t2x4 uint64_t3x4 uint64_t4x4
 
 " Sampler types
 syn keyword         hlslType                SamplerState SamplerComparisonState
