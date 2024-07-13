@@ -26,13 +26,13 @@ endif
 syn match           hlslAnnotation          /<.*;>/
 
 " Attributes
-syn match           hlslAttribute           /^\s*\[maxvertexcount(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[maxvertexcount(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[domain(\s*"\(tri\|quad\|isoline\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[earlydepthstencil\]/
-syn match           hlslAttribute           /^\s*\[instance(\s*\d\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[maxtessfactor(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[instance(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[maxtessfactor(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\d\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[outputtopology(\s*"\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[partitioning(\s*"\(integer\|fractional_even\|fractional_odd\|pow2\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"[\d\w_]\+"\s*)\]/
