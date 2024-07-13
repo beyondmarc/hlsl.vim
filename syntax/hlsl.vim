@@ -133,6 +133,7 @@ syn match           hlslSemantic            /:\s*write(\s*\(\(anyhit\|closesthit
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
 syn match           hlslSemantic            /SV_CullDistance\d\+/
 syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID
+syn keyword         hlslSemantic            SV_StartVertexLocation SV_StartInstanceLocation
 " Tessellation pipeline
 syn keyword         hlslSemantic            SV_DomainLocation SV_InsideTessFactor SV_OutputControlPointID SV_TessFactor
 " Geometry Shader
