@@ -36,7 +36,7 @@ syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\d\+\s
 syn match           hlslAttribute           /^\s*\[outputtopology(\s*"\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[partitioning(\s*"\(integer\|fractional_even\|fractional_odd\|pow2\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"[\d\w_]\+"\s*)\]/
-syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\(\s*,\s*\w\+\(\s*,\s*\w\+\)\?\)\?\s*)\]/
 syn match           hlslAttribute           /^\s*\[shader(\s*"\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)"\s*)\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
