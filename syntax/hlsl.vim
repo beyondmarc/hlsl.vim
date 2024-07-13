@@ -103,6 +103,10 @@ syn keyword         hlslFunc                CommitNonOpaqueTriangleHit CommitPro
 syn keyword         hlslFunc                CommittedGeometryIndex CommittedPrimitiveIndex CommittedObjectRayOrigin CommittedObjectRayDirection CommittedObjectToWorld3x4 CommittedObjectToWorld4x3 CommittedWorldToObject3x4
 syn keyword         hlslFunc                CommittedWorldToObject4x3 CandidateTriangleBarycentrics CandidateTriangleFrontFace CommittedTriangleBarycentrics CommittedTriangleFrontFace
 
+" Pack/Unpack math intrinsics
+syn keyword         hlslFunc                unpack_s8s16 unpack_u8u16 unpack_s8s32 unpack_u8u32
+syn keyword         hlslFunc                pack_u8 pack_s8 pack_clamp_u8 pack_clamp_s8
+
 " Layout Qualifiers
 syn keyword         hlslLayoutQual          const row_major column_major
 syn keyword         hlslLayoutQual          point line triangle lineadj triangleadj
@@ -196,6 +200,9 @@ syn keyword         hlslType                min10float1 min10float2 min10float3 
 syn keyword         hlslType                min16int1 min16int2 min16int3 min16int4
 syn keyword         hlslType                min12int1 min12int2 min12int3 min12int4
 syn keyword         hlslType                min16uint1 min16uint2 min16uint3 min16uint4
+
+" Packed types
+syn keyword         hlslType                uint8_t4_packed int8_t4_packed
 
 " Matrix types
 syn match           hlslType                /matrix<\s*\w\+\s*,\s*[1-4]\s*,\s*[1-4]\s*>/
