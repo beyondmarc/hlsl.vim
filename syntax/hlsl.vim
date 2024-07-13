@@ -77,6 +77,7 @@ syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqua
 syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
+syn keyword         hlslFunc                QuadAny QuadAll
 syn keyword         hlslFunc                WaveMatch WaveMultiPrefixSum WaveMultiPrefixProduct WaveMultiPrefixCountBits WaveMultiPrefixAnd WaveMultiPrefixOr WaveMultiPrefixXor
 syn keyword         hlslFunc                NonUniformResourceIndex
 syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
