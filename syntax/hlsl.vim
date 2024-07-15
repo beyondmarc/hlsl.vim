@@ -26,17 +26,18 @@ endif
 syn match           hlslAnnotation          /<.*;>/
 
 " Attributes
-syn match           hlslAttribute           /^\s*\[maxvertexcount(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[domain("\(tri\|quad\|isoline\)")\]/
+syn match           hlslAttribute           /^\s*\[maxvertexcount(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[domain(\s*"\(tri\|quad\|isoline\)"\s*)\]/
 syn match           hlslAttribute           /^\s*\[earlydepthstencil\]/
-syn match           hlslAttribute           /^\s*\[instance(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[maxtessfactor(\d\+)\]/
+syn match           hlslAttribute           /^\s*\[instance(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[maxtessfactor(\s*\w\+\s*)\]/
 syn match           hlslAttribute           /^\s*\[numthreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
-syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\d\+)\]/
-syn match           hlslAttribute           /^\s*\[outputtopology("\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)")\]/
-syn match           hlslAttribute           /^\s*\[partitioning("\(integer\|fractional_even\|fractional_odd\|pow2\)")\]/
-syn match           hlslAttribute           /^\s*\[patchconstantfunc("[\d\w_]\+")\]/
-syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[outputcontrolpoints(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[outputtopology(\s*"\(point\|line\|triangle_cw\|triangle_ccw\|triangle\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[partitioning(\s*"\(integer\|fractional_even\|fractional_odd\|pow2\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[patchconstantfunc(\s*"\(\d\|\w\|_\)\+"\s*)\]/
+syn match           hlslAttribute           /^\s*\[WaveSize(\s*\w\+\(\s*,\s*\w\+\(\s*,\s*\w\+\)\?\)\?\s*)\]/
+syn match           hlslAttribute           /^\s*\[shader(\s*"\(anyhit\|callable\|closesthit\|intersection\|miss\|raygeneration\)"\s*)\]/
 
 syn match           hlslAttribute           /^\s*\[fastopt\]/
 syn match           hlslAttribute           /^\s*\[loop\]/
@@ -46,6 +47,32 @@ syn match           hlslAttribute           /^\s*\[branch\]/
 syn match           hlslAttribute           /^\s*\[flatten\]/
 syn match           hlslAttribute           /^\s*\[forcecase\]/
 syn match           hlslAttribute           /^\s*\[call\]/
+syn match           hlslAttribute           /^\s*\[WaveOpsIncludeHelperLanes\]/
+
+syn match           hlslAttribute           /\[raypayload\]/
+
+" Work graph shader target attributes
+syn match           hlslAttribute           /^\s*\[Shader(\s*"\(\d\|\w\|_\)\+"\s*)\]/
+
+" Work graph shader function attributes
+syn match           hlslAttribute           /^\s*\[NodeLaunch(\s*"\(broadcasting\|coalescing\|thread\)"\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeIsProgramEntry\]/
+syn match           hlslAttribute           /^\s*\[NodeLocalRootArgumentsTableIndex(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NumThreads(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeShareInputOf(\s*"\w\+"\(\s*,\s*\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxDispatchGrid(\s*\w\+\s*,\s*\w\+\s*,\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxRecursionDepth(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /^\s*\[NodeMaxInputRecordsPerGraphEntryRecord(\s*\w\+\s*,\s*\(true\|false\)\s*)\]/
+
+" Work graph record attributes
+syn match           hlslAttribute           /\[NodeTrackRWInputSharing\]/
+syn match           hlslAttribute           /\[MaxRecords(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /\[NodeID(\s*"\w\+"\(\s*,\s*\w\+\)\?\s*)\]/
+syn match           hlslAttribute           /\[MaxRecordsSharedWith(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /\[AllowSparseNodes\]/
+syn match           hlslAttribute           /\[NodeArraySize(\s*\w\+\s*)\]/
+syn match           hlslAttribute           /\[UnboundedSparseNodes\]/
 
 " Intrinsic functions
 syn keyword         hlslFunc                abs acos acosh asin asinh atan atanh cos cosh exp exp2 floor log log10 log2 round rsqrt sin sincos sinh sqrt tan tanh trunc
@@ -59,6 +86,7 @@ syn keyword         hlslFunc                ddx ddx_coarse ddx_fine ddy ddy_coar
 syn keyword         hlslFunc                EvaluateAttributeAtCentroid EvaluateAttributeAtSample EvaluateAttributeSnapped
 syn keyword         hlslFunc                GetRenderTargetSampleCount GetRenderTargetSamplePosition
 syn keyword         hlslFunc                InterlockedAdd InterlockedAnd InterlockedCompareExchange InterlockedCompareStore InterlockedExchange InterlockedMax InterlockedMin InterlockedOr InterlockedXor
+syn keyword         hlslFunc                InterlockedCompareStoreFloatBitwise InterlockedCompareExchangeFloatBitwise
 syn keyword         hlslFunc                Process2DQuadTessFactorsAvg Process2DQuadTessFactorsMax Process2DQuadTessFactorsMin ProcessIsolineTessFactors
 syn keyword         hlslFunc                ProcessQuadTessFactorsAvg ProcessQuadTessFactorsMax ProcessQuadTessFactorsMin ProcessTriTessFactorsAvg ProcessTriTessFactorsMax ProcessTriTessFactorsMin
 syn keyword         hlslFunc                tex1D tex1Dbias tex1Dgrad tex1Dlod tex1Dproj
@@ -66,19 +94,22 @@ syn keyword         hlslFunc                tex2D tex2Dbias tex2Dgrad tex2Dlod t
 syn keyword         hlslFunc                tex3D tex3Dbias tex3Dgrad tex3Dlod tex3Dproj
 syn keyword         hlslFunc                texCUBE texCUBEbias texCUBEgrad texCUBElod texCUBEproj
 syn keyword         hlslFunc                WaveIsFirstLane WaveGetLaneCount WaveGetLaneIndex
+syn keyword         hlslFunc                IsHelperLane
 syn keyword         hlslFunc                WaveActiveAnyTrue WaveActiveAllTrue WaveActiveBallot
 syn keyword         hlslFunc                WaveReadLaneFirst WaveReadLaneAt
 syn keyword         hlslFunc                WaveActiveAllEqual WaveActiveAllEqualBool WaveActiveCountBits
 syn keyword         hlslFunc                WaveActiveSum WaveActiveProduct WaveActiveBitAnd WaveActiveBitOr WaveActiveBitXor WaveActiveMin WaveActiveMax
 syn keyword         hlslFunc                WavePrefixCountBits WavePrefixProduct WavePrefixSum
 syn keyword         hlslFunc                QuadReadAcrossX QuadReadAcrossY QuadReadAcrossDiagonal QuadReadLaneAt
+syn keyword         hlslFunc                QuadAny QuadAll
 syn keyword         hlslFunc                WaveMatch WaveMultiPrefixSum WaveMultiPrefixProduct WaveMultiPrefixCountBits WaveMultiPrefixAnd WaveMultiPrefixOr WaveMultiPrefixXor
 syn keyword         hlslFunc                NonUniformResourceIndex
 syn keyword         hlslFunc                DispatchMesh SetMeshOutputCounts
 syn keyword         hlslFunc                dot4add_u8packed dot4add_i8packed dot2add
 
 syn keyword         hlslFunc                RestartStrip
-syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel
+syn keyword         hlslFunc                CalculateLevelOfDetail CalculateLevelOfDetailUnclamped Gather GetDimensions GetSamplePosition Load Sample SampleBias SampleCmp SampleCmpLevelZero SampleGrad SampleLevel GatherRaw SampleCmpLevel
+syn keyword         hlslFunc                SampleCmpBias SampleCmpGrad
 syn keyword         hlslFunc                WriteSamplerFeedback WriteSamplerFeedbackBias WriteSamplerFeedbackGrad WriteSamplerFeedbackLevel
 syn keyword         hlslFunc                Append Consume DecrementCounter IncrementCounter
 syn keyword         hlslFunc                Load2 Load3 Load4 Store Store2 Store3 Store4
@@ -101,6 +132,16 @@ syn keyword         hlslFunc                CommitNonOpaqueTriangleHit CommitPro
 syn keyword         hlslFunc                CommittedGeometryIndex CommittedPrimitiveIndex CommittedObjectRayOrigin CommittedObjectRayDirection CommittedObjectToWorld3x4 CommittedObjectToWorld4x3 CommittedWorldToObject3x4
 syn keyword         hlslFunc                CommittedWorldToObject4x3 CandidateTriangleBarycentrics CandidateTriangleFrontFace CommittedTriangleBarycentrics CommittedTriangleFrontFace
 
+" Pack/unpack math intrinsics
+syn keyword         hlslFunc                unpack_s8s16 unpack_u8u16 unpack_s8s32 unpack_u8u32
+syn keyword         hlslFunc                pack_u8 pack_s8 pack_clamp_u8 pack_clamp_s8
+
+" Work graph object methods
+syn keyword         hlslFunc                Get FinishedCrossGroupSharing Count GetThreadNodeOutputRecords GetGroupNodeOutputRecords IsValid GroupIncrementOutputCount ThreadIncrementOutputCount OutputComplete
+
+" Work graph free intrinsics
+syn keyword         hlslFunc                GetRemainingRecursionLevels Barrier
+
 " Layout Qualifiers
 syn keyword         hlslLayoutQual          const row_major column_major
 syn keyword         hlslLayoutQual          point line triangle lineadj triangleadj
@@ -111,14 +152,17 @@ syn match           hlslLayoutQual          /TriangleStream<\s*\w\+\s*>/
 
 " User defined Semantics
 syn match           hlslSemantic            /:\s*[A-Z]\w*/
-syn match           hlslSemantic            /:\s*packoffset(c\d\+\(\.[xyzw]\)\=)/ " packoffset
-syn match           hlslSemantic            /:\s*register(\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+)/ " register
+syn match           hlslSemantic            /:\s*packoffset(\s*c\d\+\(\.[xyzw]\)\?\s*)/ " packoffset
+syn match           hlslSemantic            /:\s*register(\s*\(r\|x\|v\|t\|s\|cb\|icb\|b\|c\|u\)\d\+\s*)/ " register
+syn match           hlslSemantic            /:\s*read(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " read
+syn match           hlslSemantic            /:\s*write(\s*\(\(anyhit\|closesthit\|miss\|caller\)\s*,\s*\)*\(anyhit\|closesthit\|miss\|caller\)\?\s*)/ " write
 
 " System-Value Semantics
 " Vertex Shader
 syn match           hlslSemantic            /SV_ClipDistance\d\+/
 syn match           hlslSemantic            /SV_CullDistance\d\+/
 syn keyword         hlslSemantic            SV_Position SV_InstanceID SV_PrimitiveID SV_VertexID
+syn keyword         hlslSemantic            SV_StartVertexLocation SV_StartInstanceLocation
 " Tessellation pipeline
 syn keyword         hlslSemantic            SV_DomainLocation SV_InsideTessFactor SV_OutputControlPointID SV_TessFactor
 " Geometry Shader
@@ -132,6 +176,8 @@ syn match           hlslSemantic            /SV_Barycentrics[0-1]/
 syn keyword         hlslSemantic            SV_DispatchThreadID SV_GroupID SV_GroupIndex SV_GroupThreadID
 " Mesh shading pipeline
 syn keyword         hlslSemantic            SV_CullPrimitive
+" Work graph record system values
+syn keyword         hlslSemantic            SV_DispatchGrid
 
 " HLSL structures
 syn keyword         hlslStructure           cbuffer
@@ -179,6 +225,7 @@ syn keyword         hlslType                RasterizerOrderedBuffer RasterizerOr
 " Scalar types
 syn keyword         hlslType                bool int uint dword half float double
 syn keyword         hlslType                min16float min10float min16int min12int min16uint
+syn keyword         hlslType                float16_t float32_t float64_t
 
 " Vector types
 syn match           hlslType                /vector<\s*\w\+,\s*[1-4]\s*>/
@@ -194,6 +241,18 @@ syn keyword         hlslType                min10float1 min10float2 min10float3 
 syn keyword         hlslType                min16int1 min16int2 min16int3 min16int4
 syn keyword         hlslType                min12int1 min12int2 min12int3 min12int4
 syn keyword         hlslType                min16uint1 min16uint2 min16uint3 min16uint4
+syn keyword         hlslType                float16_t1 float16_t2 float16_t3 float16_t4
+syn keyword         hlslType                float32_t1 float32_t2 float32_t3 float32_t4
+syn keyword         hlslType                float64_t1 float64_t2 float64_t3 float64_t4
+syn keyword         hlslType                int16_t1 int16_t2 int16_t3 int16_t4
+syn keyword         hlslType                int32_t1 int32_t2 int32_t3 int32_t4
+syn keyword         hlslType                int64_t1 int64_t2 int64_t3 int64_t4
+syn keyword         hlslType                uint16_t1 uint16_t2 uint16_t3 uint16_t4
+syn keyword         hlslType                uint32_t1 uint32_t2 uint32_t3 uint32_t4
+syn keyword         hlslType                uint64_t1 uint64_t2 uint64_t3 uint64_t4
+
+" Packed types
+syn keyword         hlslType                uint8_t4_packed int8_t4_packed
 
 " Matrix types
 syn match           hlslType                /matrix<\s*\w\+\s*,\s*[1-4]\s*,\s*[1-4]\s*>/
@@ -209,6 +268,15 @@ syn keyword         hlslType                min10float1x1 min10float2x1 min10flo
 syn keyword         hlslType                min16int1x1 min16int2x1 min16int3x1 min16int4x1 min16int1x2 min16int2x2 min16int3x2 min16int4x2 min16int1x3 min16int2x3 min16int3x3 min16int4x3 min16int1x4 min16int2x4 min16int3x4 min16int4x4
 syn keyword         hlslType                min12int1x1 min12int2x1 min12int3x1 min12int4x1 min12int1x2 min12int2x2 min12int3x2 min12int4x2 min12int1x3 min12int2x3 min12int3x3 min12int4x3 min12int1x4 min12int2x4 min12int3x4 min12int4x4
 syn keyword         hlslType                min16uint1x1 min16uint2x1 min16uint3x1 min16uint4x1 min16uint1x2 min16uint2x2 min16uint3x2 min16uint4x2 min16uint1x3 min16uint2x3 min16uint3x3 min16uint4x3 min16uint1x4 min16uint2x4 min16uint3x4 min16uint4x4
+syn keyword         hlslType                float16_t1x1 float16_t2x1 float16_t3x1 float16_t4x1 float16_t1x2 float16_t2x2 float16_t3x2 float16_t4x2 float16_t1x3 float16_t2x3 float16_t3x3 float16_t4x3 float16_t1x4 float16_t2x4 float16_t3x4 float16_t4x4
+syn keyword         hlslType                float32_t1x1 float32_t2x1 float32_t3x1 float32_t4x1 float32_t1x2 float32_t2x2 float32_t3x2 float32_t4x2 float32_t1x3 float32_t2x3 float32_t3x3 float32_t4x3 float32_t1x4 float32_t2x4 float32_t3x4 float32_t4x4
+syn keyword         hlslType                float64_t1x1 float64_t2x1 float64_t3x1 float64_t4x1 float64_t1x2 float64_t2x2 float64_t3x2 float64_t4x2 float64_t1x3 float64_t2x3 float64_t3x3 float64_t4x3 float64_t1x4 float64_t2x4 float64_t3x4 float64_t4x4
+syn keyword         hlslType                int16_t1x1 int16_t2x1 int16_t3x1 int16_t4x1 int16_t1x2 int16_t2x2 int16_t3x2 int16_t4x2 int16_t1x3 int16_t2x3 int16_t3x3 int16_t4x3 int16_t1x4 int16_t2x4 int16_t3x4 int16_t4x4
+syn keyword         hlslType                int32_t1x1 int32_t2x1 int32_t3x1 int32_t4x1 int32_t1x2 int32_t2x2 int32_t3x2 int32_t4x2 int32_t1x3 int32_t2x3 int32_t3x3 int32_t4x3 int32_t1x4 int32_t2x4 int32_t3x4 int32_t4x4
+syn keyword         hlslType                int64_t1x1 int64_t2x1 int64_t3x1 int64_t4x1 int64_t1x2 int64_t2x2 int64_t3x2 int64_t4x2 int64_t1x3 int64_t2x3 int64_t3x3 int64_t4x3 int64_t1x4 int64_t2x4 int64_t3x4 int64_t4x4
+syn keyword         hlslType                uint16_t1x1 uint16_t2x1 uint16_t3x1 uint16_t4x1 uint16_t1x2 uint16_t2x2 uint16_t3x2 uint16_t4x2 uint16_t1x3 uint16_t2x3 uint16_t3x3 uint16_t4x3 uint16_t1x4 uint16_t2x4 uint16_t3x4 uint16_t4x4
+syn keyword         hlslType                uint32_t1x1 uint32_t2x1 uint32_t3x1 uint32_t4x1 uint32_t1x2 uint32_t2x2 uint32_t3x2 uint32_t4x2 uint32_t1x3 uint32_t2x3 uint32_t3x3 uint32_t4x3 uint32_t1x4 uint32_t2x4 uint32_t3x4 uint32_t4x4
+syn keyword         hlslType                uint64_t1x1 uint64_t2x1 uint64_t3x1 uint64_t4x1 uint64_t1x2 uint64_t2x2 uint64_t3x2 uint64_t4x2 uint64_t1x3 uint64_t2x3 uint64_t3x3 uint64_t4x3 uint64_t1x4 uint64_t2x4 uint64_t3x4 uint64_t4x4
 
 " Sampler types
 syn keyword         hlslType                SamplerState SamplerComparisonState
@@ -216,13 +284,22 @@ syn keyword         hlslType                sampler sampler1D sampler2D sampler3
 
 " Texture types
 syn keyword         hlslType                Texture1D Texture1DArray Texture2D Texture2DArray Texture2DMS Texture2DMSArray Texture3D TextureCube TextureCubeArray
-syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray
+syn keyword         hlslType                RWTexture1D RWTexture2D RWTexture2DArray RWTexture3D RWTextureCubeArray RWTexture2DMS RWTexture2DMSArray
 syn keyword         hlslType                FeedbackTexture2D FeedbackTexture2DArray
 syn keyword         hlslType                RasterizerOrderedTexture1D RasterizerOrderedTexture1DArray RasterizerOrderedTexture2D RasterizerOrderedTexture2DArray RasterizerOrderedTexture3D
 syn keyword         hlslTypeDeprec          texture texture1D texture2D texture3D
 
 " Raytracing types
 syn keyword         hlslType                RaytracingAccelerationStructure RayDesc RayQuery BuiltInTriangleIntersectionAttributes
+
+" Work graph input record objects
+syn keyword         hlslType                DispatchNodeInputRecord RWDispatchNodeInputRecord GroupNodeInputRecords RWGroupNodeInputRecords ThreadNodeInputRecord RWThreadNodeInputRecord EmptyNodeInput
+
+" Work graph output node objects
+syn keyword         hlslType                NodeOutput NodeOutputArray EmptyNodeOutput EmptyNodeOutputArray
+
+" Work graph output record objects
+syn keyword         hlslType                ThreadNodeOutputRecords GroupNodeOutputRecords
 
 " State Groups args
 syn case ignore " This section case insensitive
@@ -260,6 +337,9 @@ syn keyword         hlslStateGroupVal       CANDIDATE_NON_OPAQUE_TRIANGLE CANDID
 
 " Heap objects
 syn keyword         hlslStateGroupVal       ResourceDescriptorHeap SamplerDescriptorHeap
+
+" Work graph constants
+syn keyword         hlslStateGroupVal       UAV_MEMORY GROUP_SHARED_MEMORY NODE_INPUT_MEMORY NODE_OUTPUT_MEMORY ALL_MEMORY GROUP_SYNC GROUP_SCOPE DEVICE_SCOPE
 
 syn case match " Case sensitive from now on
 
